@@ -1,0 +1,74 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+}
+@model SobeIndexVM
+<ol class="breadcrumb">
+    <li>
+        <a href="/ManagerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none"></a>
+    </li>
+</ol>
+<hr />
+<div>
+    <h2 style="display:inline-block">Pregled po sobama</h2> <a href="/ManagerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Pregled soba
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Naziv</th>
+                        <th>Tip</th>
+                        <th>Sprat</th>
+                        <th>Popunjeno kreveta</th>
+                        <th>Studenti</th>
+                        <th>Popunjenost</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var x in Model.Rows)
+                    {
+                    <tr>
+                        <td>@x.Naziv</td>
+                        <td>@x.TipSobe</td>
+                        <td>@x.Sprat</td>
+                        <td>@x.Lista.Count()</td>
+                        @if (x.Lista.Count > 0)
+                        {
+                            <td>
+                                @foreach (var r in x.Lista)
+                                {
+                                    <div style="display:block"><div style="display:inline">@r._Student.Ime @r._Student.Prezime</div></div>
+                                }
+                            </td>
+                        }
+                        else
+                        {
+                            <td>U sobi nema studenata</td>
+
+                        }
+                        @if ((x.IdTipSobe == 2 && x.Lista.Count() < 3) || (x.IdTipSobe == 1 && x.Lista.Count() < 2))
+                        {
+                            <td>Nije popunjeno</td>
+                        }
+                 
+                        else
+                        {
+                            <td>Popunjeno</td>}*
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

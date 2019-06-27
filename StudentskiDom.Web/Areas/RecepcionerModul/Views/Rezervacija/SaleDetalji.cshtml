@@ -1,0 +1,102 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "SaleDetalji";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model SaleDetaljiVM
+<ol class="breadcrumb">
+	<li>
+		<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<div>
+	<h2 style="display:inline-block">Sale detalji</h2> <a href="/RecepcionerModul/Rezervacija" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<div class="card-deck">
+	<div class="card bg-primary">
+		<div class="card-body text-center">
+			<h3>Sala 1</h3>
+			<p class="card-text">
+			<span>
+		<bold>Id sale: </bold>	@Model.Rows[0].Id
+			</span><br />
+			<span>
+    	<bold>Naziv sale:</bold> 	@Model.Rows[0].Naziv
+			</span><br />
+			<span>
+		<bold>Kapacitet sale:</bold> 	@Model.Rows[0].Kapacitet
+			</span><br />
+			<span>
+		<bold>Cijena po satu sale:</bold> 	@Model.Rows[0].CijenaPoSatu
+			</span><br />
+
+
+
+
+
+
+
+			</p>
+		</div>
+	</div>
+	<div class="card bg-warning">
+		<div class="card-body text-center">
+			<h3>Sala 2</h3>
+			<p class="card-text">
+				<span>
+					<bold>Id sale: </bold>	@Model.Rows[1].Id
+				</span><br />
+				<span>
+					<bold>Naziv sale:</bold> 	@Model.Rows[1].Naziv
+				</span><br />
+				<span>
+					<bold>Kapacitet sale:</bold> 	@Model.Rows[1].Kapacitet
+				</span><br />
+				<span>
+					<bold>Cijena po satu sale:</bold> 	@Model.Rows[1].CijenaPoSatu
+				</span><br />
+			</p>
+		</div>
+	</div>
+	<div class="card bg-success">
+		<div class="card-body text-center">
+			<h3>Sala 3</h3>
+			<p class="card-text">
+				<span>
+					<bold>Id sale: </bold>	@Model.Rows[2].Id
+				</span><br />
+				<span>
+					<bold>Naziv sale:</bold> 	@Model.Rows[2].Naziv
+				</span><br />
+				<span>
+					<bold>Kapacitet sale:</bold> 	@Model.Rows[2].Kapacitet
+				</span><br />
+				<span>
+					<bold>Cijena po satu sale:</bold> 	@Model.Rows[2].CijenaPoSatu
+				</span><br />
+			</p>
+		</div>
+	</div>
+	<div class="card bg-danger">
+		<div class="card-body text-center">
+			<h3>Sala 4</h3>
+			<p class="card-text">
+				<span>
+					<bold>Id sale: </bold>	@Model.Rows[3].Id
+				</span><br />
+				<span>
+					<bold>Naziv sale:</bold> 	@Model.Rows[3].Naziv
+				</span><br />
+				<span>
+					<bold>Kapacitet sale:</bold> 	@Model.Rows[3].Kapacitet
+				</span><br />
+				<span>
+					<bold>Cijena po satu sale:</bold> 	@Model.Rows[3].CijenaPoSatu
+				</span><br />
+			</p>
+		</div>
+	</div>
+</div>
+

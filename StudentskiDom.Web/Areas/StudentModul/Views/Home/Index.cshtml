@@ -1,0 +1,94 @@
+﻿
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_LayoutStudentModul.cshtml";
+}
+
+<ol class="breadcrumb">
+	<li>
+		<a href="/StudentModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul student</a>
+	</li>
+
+</ol>
+<hr />
+<h2>Izbornik</h2>
+<hr />
+<div class="panel" >
+
+	<div class="panel-body">
+		<div class="row">
+			<a class=" col-xl-3 col-sm-6 mb-3 " style="text-decoration:none" href="/StudentModul/Podaci/LicniPodaci">
+				<div class="card text-white bg-info o-hidden h-100">
+					<div class="card-body">
+						<div class="card-body-icon">
+							<i class="fa fa-fw fa-pencil-square-o"></i>
+						</div>
+						<div class="mr-5"><h3>Podaci</h3></div>
+					</div>
+
+				</div>
+			</a>
+			<a class="col-xl-3 col-sm-6 mb-3" style="text-decoration:none" href="/StudentModul/Sobe/Index">
+				<div class="card text-white bg-info o-hidden h-100">
+					<div class="card-body">
+						<div class="card-body-icon">
+							<i class="fa fa-fw fa-hotel"></i>
+						</div>
+						<div class="mr-5"><h3>Raspored</h3></div>
+					</div>
+
+				</div>
+			</a>
+			<a class="col-xl-3 col-sm-6 mb-3" href="/StudentModul/Uplate" style="text-decoration:none">
+				<div class="card text-white bg-info o-hidden h-100">
+					<div class="card-body">
+						<div class="card-body-icon">
+							<i class="fa fa-fw fa-paypal"></i>
+
+
+						</div>
+						<div class="mr-5"><h3>Uplate</h3></div>
+					</div>
+
+				</div>
+			</a>
+			<a class="col-xl-3 col-sm-6 mb-3" style="text-decoration:none" href="/StudentModul">
+				<div class="card text-white bg-info o-hidden h-100">
+					<div class="card-body">
+						<div class="card-body-icon">
+							<i class="fa fa-fw fa-sticky-note-o"></i>
+						</div>
+
+						<div class="mr-5"><h2>Obavijesti</h2></div>
+					</div>
+
+				</div>
+			</a>
+
+
+		</div>
+	</div>
+
+
+
+</div>
+<hr />
+<h2>Najnovije obavijesti</h2>
+<hr />
+<div id="div3">
+
+</div>
+
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script>
+	$(document).ready(function (parameters) {
+		$.get("/StudentModul/Obavijesti/Index",
+			function (rezultat, status) {
+				$("#div3").html(rezultat);
+
+			});
+	});
+
+
+</script>

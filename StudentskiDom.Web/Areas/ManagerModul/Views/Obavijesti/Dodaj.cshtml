@@ -1,0 +1,58 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Dodaj";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+
+}
+@model ObavijestiDodajVM
+
+<ol class="breadcrumb">
+    <li>
+        <a href="/ManagerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul manager</a>
+    </li>
+</ol>
+<hr />
+<div>
+    <h2 style="display:inline-block">Dodavanje nove obavijesti</h2><a href="/ManagerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Snimi" asp-controller="Obavijesti" asp-area="ManagerModul" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.Naslov" class="control-label"></label>
+                <input asp-for="@Model.Naslov" class="form-control" />
+                <span asp-validation-for="@Model.Naslov" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Sadrzaj" class="control-label"></label>
+                <textarea asp-for="@Model.Sadrzaj" class="form-control"></textarea>
+                <span asp-validation-for="@Model.Sadrzaj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="@Model.Datum" value="@Model.Datum" type="date" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <div class="radio-inline">
+                    <label>Obavijest je namjenjena</label><br />
+
+                    <label>Svima</label>
+                    <input type="radio" value="true" asp-for="@Model.zaSve" />Da
+                    <input type="radio" value="false" asp-for="@Model.zaSve" />Ne
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

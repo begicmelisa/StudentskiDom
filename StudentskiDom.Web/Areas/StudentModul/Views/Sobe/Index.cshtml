@@ -1,0 +1,60 @@
+﻿@using StudentskiDom.Web.Areas.StudentModul.ViewModels
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_LayoutStudentModul.cshtml";
+}
+@model SobeIndexVM
+<ol class="breadcrumb">
+	<li>
+		<a href="/StudentModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul student</a>
+	</li>
+
+</ol>
+<hr />
+<div>
+	<h2 style="display:inline-block">Podaci o sobi</h2><a href="/StudentModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<div style="background-color:aliceblue;margin-bottom:10px;padding-left:5px;padding-bottom:5px;padding-right:10px;">
+
+
+	<p style="font-size:larger"><b>Nalazite se u sobi - @Model.Naziv</b></p>
+	<hr />
+	<p>Vrsta sobe: @Model.TipSobe </p>
+
+	<p>Soba se nalazi na spratu:  @Model.Sprat  </p>
+
+	<p>	Broj kreveta u sobi:  3</p>
+
+
+	<p>Broj zauzetih kreveta:  @Model.PopunjenoKreveta  </p>
+
+
+	<hr />
+
+</div>
+<div style="background-color:aliceblue;margin-bottom:10px;padding-left:5px;padding-bottom:5px;padding-right:10px;">
+
+
+	<p style="font-size:larger"><b>Studentima sa kojima dijelite sobu</b></p>
+	<hr />
+	
+		@if (Model.Lista.Count > 0)
+	{
+		@foreach (var item in Model.Lista)
+	{
+	<p>@item._Student.Ime @item._Student.Prezime</p>
+
+}
+
+}else
+		{
+		<p>Trenutno ste sami u sobi!</p>
+		}
+
+
+
+
+	<hr />
+
+</div>

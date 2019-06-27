@@ -1,0 +1,76 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+
+@{
+	ViewData["Title"] = "Dodaj";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model ObavijestiDodajVM
+	<ol class="breadcrumb">
+		<li>
+			<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+		</li>
+
+	</ol>
+<hr />
+	<div>
+		<h2 style="display:inline-block">Dodavanje nove obavijesti</h2><a href="/RecepcionerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+	</div>
+	<hr />
+
+	<div class="row">
+		<div class="col-md-4">
+			<form asp-action="Snimi" asp-controller="Obavijesti" asp-area="RecepcionerModul" method="post">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group">
+					<label asp-for="@Model.Naslov" class="control-label"></label>
+					<input asp-for="@Model.Naslov" class="form-control" />
+					<span asp-validation-for="@Model.Naslov" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="@Model.Sadrzaj" class="control-label"></label>
+					<textarea asp-for="@Model.Sadrzaj" class="form-control"></textarea>
+					<span asp-validation-for="@Model.Sadrzaj" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+
+					<input asp-for="@Model.Datum" value="@Model.Datum" class="form-control" />
+
+				</div>
+
+
+				<div class="form-group">
+					<div class="radio-inline">
+						<label>Obavijest je namjenjena</label><br />
+						@*
+							<label>Svima</label>
+							<input asp-for="@Model.zaSve" type="radio" value="true" name="Svi" /> Da
+							<input asp-for="@Model.zaSve" type="radio" value="false" name="Svi" checked="checked"  /> Ne
+							<br />
+							<label>Samo zaposlenicima</label>
+
+							<input asp-for="@Model.zaZaposlenike" type="radio" value="true" name="Zaposlenici" /> Da
+							<input asp-for="@Model.zaZaposlenike" type="radio" value="false" name="Zaposlenici" checked="checked"  /> Ne*@
+						<label>Svima</label>
+						@*@Html.RadioButton("true", Model.zaSve) Da
+							@Html.RadioButton("false", Model.zaSve) Ne*@
+
+						<input type="radio" value="true" asp-for="@Model.zaSve" />Da
+						<input type="radio" value="false" asp-for="@Model.zaSve" />Ne
+
+					</div>
+				</div>
+				@*<div class="form-group">
+					<label class="control-label">Zaposlenik:</label>
+					<select asp-for="@Model.ZaposlenikID" class="form-control" asp-items="@Model.Zaposlenici"></select>
+				</div>*@
+				<div class="form-group">
+					<input type="submit" value="Dodaj" class="btn btn-default" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div>
+		<a asp-action="Index">Back to List</a>
+	</div>
+

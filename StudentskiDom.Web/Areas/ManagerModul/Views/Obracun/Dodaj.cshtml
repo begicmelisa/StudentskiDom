@@ -1,0 +1,60 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Dodaj";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+
+}
+
+@model ObracunDodajVM
+@if (!ViewData.ModelState.IsValid)
+{
+    <span class="alert-danger">
+        @Html.ValidationSummary()
+    </span>
+}
+<ol class="breadcrumb">
+    <li>
+        <a href="/ManagerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul manager</a>
+    </li>
+</ol>
+<hr />
+<div>
+    <h2 style="display:inline-block">Dodavanje novog obracuna</h2><a href="/ManagerModul/Obracun" class="btn btn-primary" style="float:right;margin-right:10px">Ponisti</a>
+</div>
+<hr />
+
+
+<div class="container">
+    <div class="card-body">
+
+        <form asp-action="Snimi" asp-controller="Obracun" asp-area="ManagerModul" method="post">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label>Broj neradnih dana:</label>
+                        <input type="text" asp-for="@Model.BrojNeradnihDana" required class="form-control" aria-describedby="nameHelp" placeholder="Enter first name" />
+                    </div>
+                   
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label>Broj prekovremenih sati:</label>
+                    <input type="text" asp-for="@Model.BrojPrekovremenihSati" required class="form-control" aria-describedby="nameHelp" placeholder="Enter first name" />
+                </div>
+            </div>
+            <div class="form-group">
+               
+                <label>
+                    Zaposlenik:
+                </label>
+                <select asp-for="@Model.ZaposleniciId" asp-items="@Model.Zaposlenici" class="form-control"></select>
+            </div>
+            <div>
+                <input type="submit" value="Snimi" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>

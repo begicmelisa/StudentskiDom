@@ -1,0 +1,38 @@
+﻿@model StudentskiDom.Web.ViewModel.LoginVM
+@{
+	ViewData["Title"] = "Login";
+	string error_poruka = (string)TempData["error_poruka"];
+	Layout = "~/Views/Shared/_Layout-Anonim2.cshtml";
+}
+
+
+<div class="container">
+	<div class="login">
+		<div><h1 class="login-heading" style="font-size:55px;">Studentski Dom </h1></div>
+		
+		<h2 class="login-heading">
+			<strong>Dobrodošli.</strong> Molimo logirajte se.
+		</h2>
+		<form asp-action="Login" method="post">
+			<input type="text" asp-for="username" placeholder="Username" required="required" class="input-txt" />
+			<span asp-validation-for="username" class="text-danger"></span>
+			<input type="password" asp-for="password" placeholder="Password" required="required" class="input-txt" />
+			<span asp-validation-for="password" class="text-danger"></span>
+			<div class="login-footer">
+				<a href="#" class="lnk">
+					<input asp-for="ZapamtiPassword" />
+					Zapamti password
+				</a>
+				<button type="submit" class="btn btn--right">Prijavi se </button>
+				   
+			</div>
+		</form>
+		@if (error_poruka != null)
+	{
+		<br />
+		<div class="has-error">
+			@error_poruka !
+		</div>
+}
+	</div>
+</div>

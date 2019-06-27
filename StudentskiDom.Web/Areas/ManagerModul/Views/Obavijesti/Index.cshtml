@@ -1,0 +1,26 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+
+}
+
+@model ObavijestiIndexVM
+
+
+@foreach (var x in Model.Rows)
+{
+    if (x.zaSve || x.zaZaposlenike)
+    {
+        <div style="background-color:aliceblue;margin-bottom:10px;padding-left:5px;padding-bottom:5px;padding-right:10px;">
+            <span style="color:cornflowerblue">@x.Datum</span>
+
+            <p style="font-size:larger"><b>@x.Naslov</b></p>
+            <hr />
+            <p>@x.Sadrzaj</p>
+            <span>Obavijest postavio/la @x.PostavioZaposlenik</span>
+            <a href="/ManagerModul/Obavijesti/Obrisi?id=@x.id" style="float:right">Obriši</a>
+        </div>}
+}
+

@@ -1,0 +1,104 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+
+@{
+	ViewData["Title"] = "Edit";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model StudentiUrediVM
+@if (!ViewData.ModelState.IsValid)
+{
+	<span class="alert-danger">
+		@Html.ValidationSummary()
+	</span>
+}
+<ol class="breadcrumb">
+	<li>
+		<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<hr />
+<div>
+	<h2 style="display:inline-block">Ažuriranje informacija</h2> <a href="/RecepcionerModul/Studenti" class="btn btn-primary" style="float:right;margin-right:10px">Poništi</a>
+</div>
+<hr />
+
+
+<form asp-area="RecepcionerModul" asp-controller="Studenti" asp-action="SnimiPromjene">
+	<div class="row">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<input type="hidden" asp-for="Id" />
+		<div class="col-md-4">
+			<div class="form-group">
+				<label asp-for="@Model.Ime" class="control-label"></label>
+				<input asp-for="@Model.Ime" class="form-control" />
+				<span asp-validation-for="@Model.Ime" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.Prezime" class="control-label"></label>
+				<input asp-for="@Model.Prezime" class="form-control" />
+				<span asp-validation-for="@Model.Prezime" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.Jmbg" class="control-label"></label>
+				<input asp-for="@Model.Jmbg" class="form-control" />
+				<span asp-validation-for="@Model.Jmbg" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.Email" class="control-label"></label>
+				<input asp-for="@Model.Email" class="form-control" />
+				<span asp-validation-for="@Model.Email" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.Telefon" class="control-label"></label>
+				<input asp-for="@Model.Telefon" class="form-control" />
+				<span asp-validation-for="@Model.Telefon" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.Adresa" class="control-label"></label>
+				<input asp-for="@Model.Adresa" class="form-control" />
+				<span asp-validation-for="@Model.Adresa" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label asp-for="@Model.Spol" class="control-label"></label>
+				<input asp-for="@Model.Spol" class="form-control" />
+				<span asp-validation-for="@Model.Spol" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.DatumRodjenja" class="control-label"></label>
+				<input asp-for="@Model.DatumRodjenja" class="form-control" />
+				<span asp-validation-for="@Model.DatumRodjenja" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.FakultetId" class="control-label"></label>
+				<select asp-for="@Model.FakultetId" class="form-control" asp-items="@Model.Fakulteti"></select>
+				<span asp-validation-for="@Model.FakultetId" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.GradId" class="control-label"></label>
+				<select asp-for="@Model.GradId" class="form-control" asp-items="@Model.Gradovi"></select>
+				<span asp-validation-for="@Model.GradId" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.Username" class="control-label"></label>
+				<input type="text" asp-for="@Model.Username" class="form-control" asp-items="ViewBag._GradId">
+				<span asp-validation-for="@Model.Username" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="@Model.Password" class="control-label"></label>
+				<input type="text" asp-for="@Model.Password" class="form-control" asp-items="ViewBag.KorisnickiNalogId">
+				<span asp-validation-for="@Model.Password" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Spremi" class="btn btn-outline-secondary" />
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+
+

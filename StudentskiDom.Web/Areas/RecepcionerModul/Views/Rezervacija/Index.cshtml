@@ -1,0 +1,94 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model RezervacijeIndexVM
+<ol class="breadcrumb">
+	<li>
+		<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<hr />
+<div>
+	<h2 style="display:inline-block">Rezervacija sala</h2> <a href="/RecepcionerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<div class="row">
+	<a class="col-xl-3 col-sm-6 mb-3" href="/RecepcionerModul/Rezervacija/SaleDetalji" style="text-decoration:none">
+		<div class="card text-white bg-danger o-hidden h-100">
+			<div class="card-body">
+				<div class="card-body-icon">
+					<i class="fa fa-fw fa-soccer-ball-o"></i>
+				</div>
+				<div class="mr-5">Pregled detalja o salama</div>
+			</div>
+
+		</div>
+	</a>
+	<a class="col-xl-3 col-sm-6 mb-3" href="/RecepcionerModul/Rezervacija/DodajPosjetioca" style="text-decoration:none">
+		<div class="card text-white bg-danger o-hidden h-100">
+			<div class="card-body">
+				<div class="card-body-icon">
+					<i class="fa fa-fw fa-soccer-ball-o"></i>
+				</div>
+				<div class="mr-5">Novi posjetilac </div>
+			</div>
+
+		</div>
+	</a>
+	<a class="col-xl-3 col-sm-6 mb-3" href="/RecepcionerModul/Rezervacija/DodajRezervaciju" style="text-decoration:none">
+		<div class="card text-white bg-danger o-hidden h-100">
+			<div class="card-body">
+				<div class="card-body-icon">
+					<i class="fa fa-fw fa-soccer-ball-o"></i>
+				</div>
+				<div class="mr-5">Nova rezervacija </div>
+			</div>
+
+		</div>
+	</a>
+</div>
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i> Historija rezervacija
+	</div>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Sala</th>
+						<th>Datum</th>
+						<th>Broj sati</th>
+						<th>Cijena</th>
+						<th>Posjetilac</th>
+						<th>Zaposlenik</th>
+					<th>Akcija</th>
+					</tr>
+				</thead>
+			
+				<tbody>
+					@foreach (var x in Model.Rows)
+					{
+						<tr>
+							<td>@x.sala</td>
+							<td>@x.Datum.ToString("dd.MM.yyyy")</td>
+							<td>@x.BrojSati</td>
+							<td>@x.UkupnaCijena</td>
+							<td>@x.posjetilac</td>
+							<td>@x.zaposlenik</td>
+							<td><a href="/RecepcionerModul/Rezervacija/ObrisiRezervaciju?id=@x.Id">Obrisi</a></td>
+						
+						</tr>
+					}
+
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+

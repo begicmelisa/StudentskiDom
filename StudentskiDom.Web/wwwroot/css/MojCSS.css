@@ -1,0 +1,28 @@
+﻿body {
+}
+
+.izbornik1 {
+	width: 90%;
+	height: 500px;
+	background: #eee;
+	margin: 10px auto;
+	position: relative;
+	text-align: center;
+}
+
+.block {
+	background: gray;
+	height: 220px;
+	width: 400px;
+	display: inline-block;
+	margin: 10px;
+}
+.slika1 {
+	background-image:url(/images/icon-people.png) ;
+	background-repeat:no-repeat;
+	
+	background-size:auto;
+}
+
+
+

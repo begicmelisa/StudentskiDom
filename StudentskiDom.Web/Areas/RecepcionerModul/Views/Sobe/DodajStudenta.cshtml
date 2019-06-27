@@ -1,0 +1,71 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "DodajStudenta";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model SobeDodajStudentaVM
+	<ol class="breadcrumb">
+		<li>
+			<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Recepcioner modul</a>
+		</li>
+
+	</ol>
+	<hr />
+	<div>
+		<h2 style="display:inline-block">Dodaj studenta u sobu </h2><a href="/RecepcionerModul/Sobe/Index" class="btn btn-primary" style="float:right;margin-right:10px">Poništi</a>
+	</div>
+	<hr />
+	<form asp-area="RecepcionerModul" asp-controller="Sobe" asp-action="SnimiDodavanjeStudenta">
+		<div class="">
+			<label>Soba</label>
+			<input type="text" readonly value=" @Model.Naziv" style="border:none" class="form-control" />
+			<input type="text" hidden asp-for="@Model.SobaId" style="border:none" class="form-control" />
+
+		</div>
+
+		<div class="col-md-6"></div>
+		<div class="row">
+			<div class=" col-3">
+
+
+				<div class="form-group">
+
+					<label>
+						Izaberi studenta:
+					</label>
+					<select asp-for="@Model.StudentID" asp-items="@Model.Studenti" class="form-control"></select>
+				</div>
+			</div>
+			@*<div class=" col-3">
+				<div class="form-group">
+
+					<label>
+						Dodavanje izvršio:
+					</label>
+					<select asp-for="@Model.ZaposlnikID" asp-items="@Model.Zaposlenici" class="form-control"></select>
+				</div>
+
+			</div>*@
+		
+		</div>
+		
+
+		<div class="form-group">
+
+			<div>
+				<label>
+					Unesite napomenu:<br />
+				</label>
+			</div>
+			<textarea rows="4" cols="50" asp-for=@Model.Napomena>
+
+</textarea>
+		</div>
+		
+	<br /><br />
+		<div>
+
+			<input type="submit" value="Snimi" class="btn btn-primary " />
+		</div>
+
+	</form>

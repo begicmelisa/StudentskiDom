@@ -1,0 +1,55 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+}
+@model RezervacijeIndexVM
+
+<ol class="breadcrumb">
+    <li>
+        <a href="/ManagerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none"></a>
+    </li>
+</ol>
+<hr />
+
+<div>
+    <h2 style="display:inline-block">Rezervacija sala</h2> <a href="/ManagerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Historija rezervacija
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Sala</th>
+                        <th>Datum</th>
+                        <th>Broj sati</th>
+                        <th>Cijena</th>
+                        <th>Posjetilac</th>
+                        <th>Zaposlenik</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var x in Model.Rows)
+                    {
+                        <tr>
+                            <td>@x.sala</td>
+                            <td>@x.Datum.ToString("dd.MM.yyyy")</td>
+                            <td>@x.BrojSati</td>
+                            <td>@x.UkupnaCijena</td>
+                            <td>@x.posjetilac</td>
+                            <td>@x.zaposlenik</td>                            
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,55 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+}
+
+@model UplateIndexVM
+    <ol class="breadcrumb">
+        <li>
+            <a href="/ManagerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Manager modul</a>
+        </li>
+    </ol>
+    <hr />
+    <div>
+        <h2 style="display:inline-block"></h2><a href="/ManagerModul/Uplate/Dodaj" class="btn btn-success" style="float:right">Dodaj novu uplatu</a><a href="/
+       <a href="/ManagerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+    </div>
+    <hr />
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i>Pregled uplata
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Datum</th>
+                            <th>Iznos</th>
+                            <th>Studenti</th>
+                            <th>Tipovi uplata</th>
+                            <th>Zaposlenici</th>
+                  
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var x in Model.Rows)
+                        {
+                        <tr>
+                            <td>@x.Datum</td>
+                            <td>@x.Iznos</td>
+                            <td>@x.Student</td>
+                            <td>@x.TipUplate</td>
+                            <td>@x.Zaposlenik</td>
+                            
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

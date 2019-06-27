@@ -1,0 +1,122 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+
+}
+@model StudentiIndexVM
+<!-- Bootstrap core CSS-->
+<link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="~/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Page level plugin CSS-->
+<link href="~/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="~/css/sb-admin.css" rel="stylesheet">
+<ol class="breadcrumb">
+	<li>
+		<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<hr />
+<div>
+	<h2 style="display:inline-block">Upisani studenti</h2> <a href="/RecepcionerModul/Studenti/Dodaj" class="btn btn-success" style="float:right">Dodaj novog</a><a href="/RecepcionerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<form asp-route="/ModulRecepcioner/Studenti/Index"  method="get"  class="form-inline my-2 my-lg-0 mr-lg-2">
+	<div class="input-group">
+		<input class="form-control" type="text" placeholder="Pretraga studenata..." name="searchString">
+		<span class="input-group-append">
+			<button class="btn btn-primary" type="submit">
+				<i class="fa fa-search"></i>
+			</button>
+		</span>
+	</div>
+</form>
+<hr />
+
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i> Tabela studenata
+	</div>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable"  cellspacing="0">
+				<thead>
+					<tr>
+						<th>Ime</th>
+						<th>Prezime</th>
+						<th>Spol</th>
+						<th>Jmbg</th>
+						<th>Email</th>
+						<th>Grad</th>
+						<th>Soba</th>
+						<th>Akcija</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Ime</th>
+						<th>Prezime</th>
+						<th>Spol</th>
+						<th>Jmbg</th>
+						<th>Email</th>
+						<th>Grad</th>
+						<th>Soba</th>
+						<th>Akcija</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					@foreach (var x in Model.Rows)
+					{
+						<tr>
+							<td>@x.Ime</td>
+							<td>@x.Prezime</td>
+							<td>@x.Spol</td>
+							<td>@x.Jmbg</td>
+							<td>@x.Email</td>
+							<td>@x.Grad</td>
+							@{if (x.Soba_ == null)
+								{
+									<td><a href="/RecepcionerModul/Studenti/DodajUSobu?id=@x.Id">Dodaj</a></td>
+								}
+								else
+								{
+									<td>@x.Soba_</td>
+								}
+							}
+							<td>
+								<a href="/RecepcionerModul/Studenti/Detalji?id=@x.Id" class="btn btn-primary">Detalji</a>  <a href="/RecepcionerModul/Studenti/Obrisi?id=@x.Id" class="btn btn-danger">Obriši</a>
+							</td>
+						</tr>
+					}
+
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+@*<!-- Bootstrap core JavaScript-->
+<script src="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/vendor/jquery/jquery.min.js"></script>
+<script src="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Page level plugin JavaScript-->
+<script src="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/vendor/datatables/jquery.dataTables.js"></script>
+<script src="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/js/sb-admin.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/js/sb-admin-datatables.min.js"></script>
+<!-- Bootstrap core CSS-->
+<link href="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Page level plugin CSS-->
+<link href="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="E:/FIT/3.Godina/3.GODINA/Prvi smestar/RS1/Aplikacija/StudentskiDom/StudentskiDom.Web/wwwroot/css/sb-admin.css" rel="stylesheet">*@
+

@@ -1,0 +1,66 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Uredi";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+
+}
+@model UplateUrediVM
+@if (!ViewData.ModelState.IsValid)
+{
+    <span class="alert-danger">
+        @Html.ValidationSummary()
+    </span>
+}
+<ol class="breadcrumb">
+    <li>
+        <a href="/ManagerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul manager</a>
+    </li>
+</ol>
+<hr />
+<div>
+    <h2 style="display:inline-block">Ažuriranje informacija</h2> <a href="/ManagerModul/Zaposlenici" class="btn btn-primary" style="float:right;margin-right:10px">Poništi</a>
+</div>
+<hr />
+
+<div class="container">
+    <div class="card-body">
+
+        <form asp-action="SnimiPromjene" asp-controller="Uplate" asp-area="ManagerModul" method="post">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label>Datum:</label>
+                        <input type="date" asp-for="@Model.Datum" value="@Model.Datum" required class="form-control" aria-describedby="nameHelp" placeholder="Enter first name" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Iznos:</label>
+                        <input type="text" asp-for="@Model.Iznos" value="@Model.Iznos" required class="form-control" aria-describedby="nameHelp" placeholder="Enter last name" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Studenti:
+                </label>
+                <select asp-for="StudentiId" asp-items="@Model.Studenti" class="form-control"><option value="@Model.StudentiId"></option></select>
+            </div>
+            <div class="form-group">
+                <label>
+                    Zaposlenici:
+                </label>
+                <select asp-for="ZaposleniciId" asp-items="@Model.Zaposlenici" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label>
+                    Tip uplata:
+                </label>
+                <select asp-for="TipUplateId" asp-items="@Model.TipUplate" class="form-control"></select>
+            </div>
+            <div>
+                <input type="submit" value="SnimiPromjene" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>

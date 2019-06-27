@@ -1,0 +1,114 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "DodajRezervaciju";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model DodajRezervacijuVM
+<ol class="breadcrumb">
+	<li>
+		<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<div>
+	<h2 style="display:inline-block">Nova rezervacija</h2> <a href="/RecepcionerModul/Rezervacija" class="btn btn-primary" style="float:right;margin-right:10px">Poništi</a>
+</div>
+<hr />
+<div>
+		<div style="display:inline-block">
+			<form asp-route="/RecepcionerModul/Rezervacija/DodajRezervaciju" method="get" class="form-inline my-2 my-lg-0 mr-lg-2">
+				<div class="input-group">
+					<label for="sesearchDate">Odaberite datum: </label>
+					<input class="form-control" type="date" placeholder="Pretrazi datum..." name="searchDate">
+					<span class="input-group-append">
+						<button class="btn btn-primary" type="submit" value="Snimi 1">
+							<i class="fa fa-search"></i>
+						</button>
+					</span>
+				</div>
+			</form>
+		</div>
+		<div style="float:right">
+			<a class="btn  btn-danger" href="/RecepcionerModul/Rezervacija/SaleDetalji" style="text-decoration:none">
+				Pregled detalja o salama
+			</a>
+		</div>
+	</div>
+<hr />
+
+
+<div class="row">
+	<div style="padding-right:10px;padding-left:10px;"><p><strong>Na odabrani datum slobodne dvorane su:</strong></p></div>
+	@foreach (var item in Model.Dvorane)
+	{
+		<div style="padding-right:10px">@item.Text</div>
+
+	}
+</div>
+@*<hr />
+	<div id="div3">
+
+	</div>
+	<script src="~/vendor/jquery/jquery.min.js"></script>
+	<script>
+		$(document).ready(function (parameters) {
+			$.get("/RecepcionerModul/Rezervacija/DodajRezervacijuAjax",
+				function (rezultat, status) {
+					$("#div3").html(rezultat);
+
+				});
+		});
+
+
+	</script>*@
+
+<form asp-action="SnimiNovuRezervaciju" asp-controller="Rezervacija" asp-area="RecepcionerModul">
+	<div class="form-group">
+		<div class="form-row">
+
+			<div class="col-md-6">
+				<label>Datum rezervacije:</label>
+				<input type="text"  asp-for="@Model.Datum" value=@Model.Datum.ToString("yyyy-MM-dd") readonly required class="form-control" />
+			</div>
+			<div class="col-md-6">
+
+				<label>
+					Sala:
+				</label>
+				<select asp-for="@Model.DvoranaID" asp-items="@Model.Dvorane" class="form-control"></select>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="form-row">
+
+			<div class="col-md-6">
+				<label>Broj sati:</label>
+				<input type="number" asp-for="@Model.BrojSati" required min="1" class="form-control" />
+			</div>
+			<div class="col-md-6">
+
+				<label>
+					Posjetilac:
+				</label>
+				<select asp-for="@Model.PosjetilacID" asp-items="@Model.Posjetioci" class="form-control"></select>
+			</div>
+		</div>
+	</div>
+
+
+	@*<div class="form-group">
+
+		<label>
+			Dodavanje izvršio:
+		</label>
+		<select asp-for="@Model.ZaposlnikID" asp-items="@Model.Zaposlenici" class="form-control"></select>
+	</div>*@
+	<div>
+
+		<input type="submit" value="Snimi" class="btn btn-primary " />
+	</div>
+</form>
+
+
+

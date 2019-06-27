@@ -1,0 +1,133 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "Detalji";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model StudentiDetaljiVM
+<ol class="breadcrumb">
+	<li>
+		<a href="/StudentModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<hr>
+<div>
+	<h2 style="display:inline-block">Detalji studenta @Model.Ime  @Model.Prezime </h2> <a href="/RecepcionerModul/Studenti/Index" class="btn btn-primary" style="float:right">Nazad</a>
+</div>
+<hr />
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i> Osnovni podaci
+	</div>
+	<div class="card-body">
+		<form >
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+						<label>Ime i prezime</label>
+						<input type="text" readonly value=" @Model.Ime  @Model.Prezime" style="border:none" class="form-control" />
+					</div>
+					<div class="col-md-6">
+						<label>Datum rođjenja</label>
+						<input type="text" readonly value="@Model.DatumRodjenja" style="border:none" class="form-control" />
+					</div>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+						<label>Jmbg</label>
+						<input type="text" readonly value="@Model.Jmbg" style="border:none" class="form-control" />
+					</div>
+					<div class="col-md-6">
+						<label>Spol</label>
+						<input type="text" readonly value="@Model.Spol" style="border:none" class="form-control" />
+					</div>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+						<label>Adresa</label>
+						<input type="text" readonly value="@Model.Adresa" style="border:none" class="form-control" />
+					</div>
+					<div class="col-md-6">
+						<label>Grad</label>
+						<input type="text" readonly value="@Model.Grad" style="border:none" class="form-control" />
+					</div>
+
+				</div>
+			</div>
+		</form>
+		<a type="submit" class="btn btn-outline-secondary" style="float:right" href="/RecepcionerModul/Studenti/Edit?id=@Model.Id">Ažuriraj</a>
+
+	</div>
+
+</div>
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i> Kontakt podaci
+	</div>
+	<div class="card-body">
+		<form asp-route="/ModulRecepcioner/Studenti/Edit">
+			<div class="form-group">
+
+				<label>Email</label>
+				<input type="text" readonly value="@Model.Email" style="border:none" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label>Telefon</label>
+				<input type="text" readonly value="@Model.Telefon" style="border:none" class="form-control" />
+
+			</div>
+
+
+			
+
+
+
+
+		</form>
+		<a type="submit" class="btn btn-outline-secondary" style="float:right" href="/RecepcionerModul/Studenti/Edit?id=@Model.Id">Ažuriraj</a>
+
+	</div>
+</div>
+
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i> Korisnicki i statusni podaci
+	</div>
+	<div class="card-body">
+		<form>
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+						<label>Username</label>
+						<input type="text" readonly value="@Model.Username" style="border:none" class="form-control" />
+					</div><div class="col-md-6">
+						<label>Password</label>
+						<input type="text" readonly value="@Model.Password" style="border:none" class="form-control" />
+
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Nalazi se u sobi</label>
+				<input type="text" readonly value="@Model.Soba_" style="border:none" class="form-control" />
+			</div>
+			@*<div class="form-group">
+							<label>Studenti sa kojima dijeli sobu</label>
+							@foreach (var x in Model.studentiSaKojimaDijeliSobu)
+				{
+						<input type="text" readonly value="@x" style="border:none" class="form-control" />
+			}
+						</div>*@
+
+		
+		</form>
+		<a type="submit" class="btn btn-outline-secondary" style="float:right" href="/RecepcionerModul/Studenti/Edit?id=@Model.Id">Ažuriraj</a>
+
+	</div>
+</div>

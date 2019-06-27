@@ -1,0 +1,67 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "DodajPosjetioca";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model PosjetilacDodajVM
+
+<ol class="breadcrumb">
+	<li>
+		<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<div>
+	<h2 style="display:inline-block">Dodavanje novog posjetioca</h2><a href="/RecepcionerModul/Rezervacija" class="btn btn-primary" style="float:right;margin-right:10px">Ponisti</a>
+</div>
+<hr />
+<div class="container">
+	<div class="card-body">
+
+
+		<form asp-action="SnimiDodajPosjetioca" asp-controller="Rezervacija" asp-area="RecepcionerModul" method="post">
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+
+						<label>Ime:</label>
+						<input type="text" asp-for="@Model.Ime" required class="form-control" aria-describedby="nameHelp" placeholder="Enter first name" />
+					</div>
+					<div class="col-md-6">
+						<label>Prezime:</label>
+						<input type="text" asp-for="@Model.Prezime" required class="form-control" aria-describedby="nameHelp" placeholder="Enter last name" />
+					</div>
+				</div>
+			</div>
+		
+
+
+			<div class="form-group">
+				<label>Jmbg:</label>
+				<input type="text" asp-for="@Model.JMBG" class="form-control" value="@Model.JMBG" />
+			</div>
+			<div class="form-row">
+				<div class="col-md-6">
+					<label>Email:</label>
+					<input type="text" asp-for="@Model.Mail" class="form-control" />
+				</div>
+				<div class="col-md-6">
+					<label>Telefon:</label>
+					<input type="text" asp-for="@Model.Telefon" class="form-control" />
+				</div>
+			</div>
+			
+			<br />
+			<br />
+	
+
+			<div>
+				<input type="submit" value="Snimi" class="btn btn-primary btn-block" />
+			</div>
+
+		</form>
+
+	</div>
+</div>
+
+

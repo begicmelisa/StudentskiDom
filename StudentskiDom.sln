@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentskiDom.Data", "StudentskiDom.Data\StudentskiDom.Data.csproj", "{F5A76624-1E3E-4CBE-8516-75DB77B26DF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentskiDom.Web", "StudentskiDom.Web\StudentskiDom.Web.csproj", "{F5092B50-3ECA-49E2-AF97-A1B431C25FF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5A76624-1E3E-4CBE-8516-75DB77B26DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A76624-1E3E-4CBE-8516-75DB77B26DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A76624-1E3E-4CBE-8516-75DB77B26DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A76624-1E3E-4CBE-8516-75DB77B26DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5092B50-3ECA-49E2-AF97-A1B431C25FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5092B50-3ECA-49E2-AF97-A1B431C25FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5092B50-3ECA-49E2-AF97-A1B431C25FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5092B50-3ECA-49E2-AF97-A1B431C25FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86F1BBB0-D337-4213-8CC0-842DDD02E174}
+	EndGlobalSection
+EndGlobal

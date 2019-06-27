@@ -1,0 +1,105 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "LicniPodaci";
+	Layout = "~/Views/Shared/_LayoutStudentModul.cshtml";
+}
+@model StudentiDetaljiVM
+<ol class="breadcrumb">
+	<li>
+		<a href="/StudentModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul student</a>
+	</li>
+
+</ol>
+<hr />
+<div>
+	<h2 style="display:inline-block">Vaši podaci</h2><a href="/StudentModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i> Osnovni podaci
+	</div>
+	<div class="card-body">
+		<form>
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+						<label>Ime i prezime</label>
+						<input type="text" readonly value=" @Model.Ime  @Model.Prezime" style="border:none" class="form-control" />
+					</div>
+					<div class="col-md-6">
+						<label>Datum rođjenja</label>
+						<input type="text" readonly value="@Model.DatumRodjenja" style="border:none" class="form-control" />
+					</div>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+						<label>Jmbg</label>
+						<input type="text" readonly value="@Model.Jmbg" style="border:none" class="form-control" />
+					</div>
+					<div class="col-md-6">
+						<label>Spol</label>
+						<input type="text" readonly value="@Model.Spol" style="border:none" class="form-control" />
+					</div>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+						<label>Adresa</label>
+						<input type="text" readonly value="@Model.Adresa" style="border:none" class="form-control" />
+					</div>
+					<div class="col-md-6">
+						<label>Grad</label>
+						<input type="text" readonly value="@Model.Grad" style="border:none" class="form-control" />
+					</div>
+
+				</div>
+			</div>
+		</form>
+
+
+	</div>
+
+</div>
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i> Kontakt podaci
+	</div>
+	<div class="card-body">
+		<form asp-route="/ModulRecepcioner/Studenti/Edit">
+			<div class="form-group">
+
+				<label>Email</label>
+				<input type="text" readonly value="@Model.Email" style="border:none" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label>Telefon</label>
+				<input type="text" readonly value="@Model.Telefon" style="border:none" class="form-control" />
+
+			</div>
+
+
+
+
+
+
+
+		</form>
+
+
+	</div>
+</div>
+<div style="background-color:aliceblue;margin-bottom:10px;padding-left:5px;padding-bottom:5px;padding-right:10px;">
+
+
+	<p style="font-size:larger"><b>Napomena</b></p>
+	<hr />
+	<p>Ukoliko smatrate da vaše podaci nisu ispravno evidentirani, što prije se obratite na rececpciji studentskog doma!</p>
+
+
+</div>

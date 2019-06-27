@@ -1,0 +1,77 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+
+}
+@model ZaposleniciIndexVM
+<link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="~/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+<link href="~/css/sb-admin.css" rel="stylesheet">
+<ol class="breadcrumb">
+    <li>
+        <a href="/ManagerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul manager</a>
+    </li>
+</ol>
+<hr />
+<div>
+    <h2 style="display:inline-block">Zaposlenici</h2> <a href="/ManagerModul/Zaposlenici/Dodaj" class="btn btn-success" style="float:right">Dodaj novog</a><a href="/ManagerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<form asp-route="/ManagerModul/Zaposlenici/Index" method="get" class="form-inline my-2 my-lg-0 mr-lg-2">
+    <div class="input-group">
+        <input class="form-control" type="text" placeholder="Pretraga studenata..." name="searchString">
+        <span class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</form>
+<hr />
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Zaposlenici
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>JMBG</th>
+                        <th>Email</th>
+                        <th>Grad</th>
+                        <th>Vrsta zaposlenika</th>
+                        <th>Korisnicki nalog</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    @foreach (var x in Model.Rows)
+                    {
+                    <tr>
+                        <td>@x.Ime</td>
+                        <td>@x.Prezime</td>
+                        <td>@x.Jmbg</td>
+                        <td>@x.Email</td>
+                        <td>@x.Grad</td>
+                        <td>@x.VrstaZaposlenika</td>
+                        <td>@x.KorisnickiNalog</td>
+                        <td>
+                            <a href="/ManagerModul/Zaposlenici/Detalji?id=@x.Id" class="btn btn-primary">Detalji</a>
+                            <a href="/ManagerModul/Zaposlenici/Obrisi?id=@x.Id" class="btn btn-danger">Obriši</a>
+                            <a href="/ManagerModul/Zaposlenici/Edit?id=@x.Id" class="btn btn-success">Uredi</a>
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

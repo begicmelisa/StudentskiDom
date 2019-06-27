@@ -1,0 +1,22 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "Index";
+
+}
+@model ObavijestiIndexVM
+
+	@foreach (var x in Model.Rows)
+	{
+		if (x.zaSve || x.zaZaposlenike)
+		{
+		<div style="background-color:aliceblue;margin-bottom:10px;padding-left:5px;padding-bottom:5px;padding-right:10px;">
+			<span style="color:cornflowerblue">@x.Datum</span>
+			
+			<p style="font-size:larger"><b>@x.Naslov</b></p>
+			<hr />
+			<p>@x.Sadrzaj</p>
+			<span>Obavijest postavio/la @x.PostavioZaposlenik</span>
+			<a href="/RecepcionerModul/Obavijesti/Obrisi?id=@x.id" style="float:right">Obriši</a>
+		</div>}
+	}
+		<a href="/RecepcionerModul/Home/Index" class="btn btn-success">Nazad</a>

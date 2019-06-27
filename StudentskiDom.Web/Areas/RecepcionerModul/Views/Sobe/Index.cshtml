@@ -1,0 +1,91 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model SobeIndexVM
+<ol class="breadcrumb">
+	<li>
+		<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<hr />
+<div>
+	<h2 style="display:inline-block">Pregled po sobama</h2> <a href="/RecepcionerModul" class="btn btn-primary" style="float:right;margin-right:10px">Nazad</a>
+</div>
+<hr />
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i> Pregled soba
+	</div>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Naziv</th>
+						<th>Tip</th>
+						<th>Sprat</th>
+						<th>Popunjeno kreveta</th>
+						<th>Studenti</th>
+						<th>Akcija</th>
+
+
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Naziv</th>
+						<th>Tip</th>
+						<th>Sprat</th>
+						<th>Popunjeno kreveta</th>
+						<th>Studenti</th>
+						<th>Akcija</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					@foreach (var x in Model.Rows)
+					{
+						<tr>
+							<td>@x.Naziv</td>
+							<td>@x.TipSobe</td>
+							<td>@x.Sprat</td>
+							<td>@x.PopunjenoKreveta</td>
+							@if (x.Lista.Count > 0)
+							{
+							<td>
+								@foreach (var r in x.Lista)
+	{
+								<div style="display:block"><div style="display:inline">@r._Student.Ime @r._Student.Prezime</div> <div style="display:inline" ><a href="/RecepcionerModul/Sobe/OdjaviStudenta?id=@r.Id">(Odjavi iz sobe)</a></div></div>
+
+					
+}
+
+							</td>
+							}
+							else
+							{
+								<td>U sobi nema studenata</td>
+
+							}
+							
+									@if (x.PopunjenoKreveta < 3)
+									{
+									<td><a href="/RecepcionerModul/Sobe/DodajStudenta?id=@x.Id" class="btn btn-success">Dodaj jos studenata</a></td>}
+									else
+									{
+									<td>Popunjeno</td>}*
+
+
+								
+						</tr>
+					}
+
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,95 @@
+﻿@using StudentskiDom.Web.Areas.ManagerModul.ViewModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Detalji";
+    Layout = "~/Views/Shared/_LayoutManagerModul.cshtml";
+
+}
+@model ZaposleniciDetaljiVM
+
+<ol class="breadcrumb">
+    <li>
+        <a href="/ManagerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul manager</a>
+    </li>
+</ol>
+<hr>
+<div>
+    <h2 style="display:inline-block">Detalji zaposlenika @Model.Ime @Model.Prezime </h2> <a href="/ManagerModul/Zaposlenici/Index" class="btn btn-primary" style="float:right">Nazad</a>
+
+
+</div>
+<hr />
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Osnovni podaci
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label>Ime i prezime</label>
+                        <input type="text" readonly value=" @Model.Ime  @Model.Prezime" style="border:none" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label>Jmbg</label>
+                        <input type="text" readonly value="@Model.Jmbg" style="border:none" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label>Grad</label>
+                        <input type="text" readonly value="@Model.Grad" style="border:none" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Kontakt podaci
+    </div>
+    <div class="card-body">
+        <form asp-route="/ManagerModul/Zaposlenici/Edit">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" readonly value="@Model.Email" style="border:none" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Telefon</label>
+                <input type="text" readonly value="@Model.Telefon" style="border:none" class="form-control" />
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Korisnicki i statusni podaci
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label>Username</label>
+                        <input type="text" readonly value="@Model.KorisnickoIme" style="border:none" class="form-control" />
+                       
+                    </div>
+                </div>
+
+                <a href="/ManagerModul/Zaposlenici/Edit?id=@Model.Id" class="btn btn-success" style="float:right">Uredi</a>
+        </form>
+    </div>
+</div>

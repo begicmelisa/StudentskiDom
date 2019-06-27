@@ -1,0 +1,108 @@
+﻿@using StudentskiDom.Web.Areas.RecepcionerModul.ViewModels
+@{
+	ViewData["Title"] = "Dodaj";
+	Layout = "~/Views/Shared/_Layout-novi2.cshtml";
+}
+@model StudentiDodajVM
+@if (!ViewData.ModelState.IsValid)
+{
+	<span class="alert-danger">
+		@Html.ValidationSummary()
+	</span>
+}
+<ol class="breadcrumb">
+	<li>
+		<a href="/RecepcionerModul" class="breadcrumb-item" style="color:cadetblue;font-size:x-large;text-decoration:none">Modul recepcioner</a>
+	</li>
+
+</ol>
+<hr />
+<div>
+	<h2 style="display:inline-block">Dodavanje novog studenta</h2><a href="/RecepcionerModul/Studenti" class="btn btn-primary" style="float:right;margin-right:10px">Ponisti</a>
+</div>
+<hr />
+<div class="container">
+	<div class="card-body">
+
+	
+		<form asp-action="Snimi" asp-controller="Studenti" asp-area="RecepcionerModul" method="post">
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+
+						<label>Ime:</label>
+						<input type="text" asp-for="@Model.Ime" required class="form-control" aria-describedby="nameHelp" placeholder="Enter first name" />
+					</div>
+					<div class="col-md-6">
+						<label>Prezime:</label>
+						<input type="text" asp-for="@Model.Prezime" required class="form-control" aria-describedby="nameHelp" placeholder="Enter last name" />
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-row">
+					<div class="col-md-6">
+
+						<label>Spol:</label>
+						<select asp-for="@Model.Spol" class="form-control">
+							<option value="M">Musko</option>
+							<option value="Z">Zensko</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<label>Datum rodjena:</label>
+						<input type="date" asp-for="@Model.DatumRodjenja" required class="form-control" />
+					</div>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label>Jmbg:</label>
+				<input type="text" asp-for="@Model.Jmbg" class="form-control" value="@Model.Jmbg" />
+			</div>
+			<div class="form-row">
+				<div class="col-md-6">
+					<label>Email:</label>
+					<input type="text" asp-for="@Model.Email" class="form-control" />
+				</div>
+				<div class="col-md-6">
+					<label>Telefon:</label>
+					<input type="text" asp-for="@Model.Telefon" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Adresa:</label>
+				<input type="text" asp-for="@Model.Adresa" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label>
+					Grad:
+				</label>
+				<select asp-for="@Model.GradId" asp-items="@Model.Gradovi"  class="form-control">
+					
+
+				</select>
+			</div>
+
+			<label>
+				Fakultet:
+			</label>
+			<select asp-for="@Model.FakultetId" asp-items="@Model.Fakulteti"  class="form-control">
+				
+			</select>
+			<label>
+				Dodaj u sobu:
+			</label>
+			<select asp-for="@Model.SlobodnaSobaId" asp-items="@Model.SlobodneSobe"  class="form-control">
+				
+			</select>
+
+
+			<div>
+				<input type="submit" value="Snimi" class="btn btn-primary btn-block" />
+			</div>
+
+		</form>
+
+</div> </div>

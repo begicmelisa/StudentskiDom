@@ -1,0 +1,41 @@
+﻿@using StudentskiDom.Web.Areas.StudentModul.ViewModels
+@{
+	ViewData["Title"] = "PromjeniLozinku";
+	
+}
+@model PodaciPromjeniLozinkuVM
+<h2>Promjeni lozinku</h2>
+<form asp-area="StudentModul" asp-controller="Podaci" asp-action="SnimiPromjene"> 
+	<div class="form-group">
+		<label asp-for="@Model.Username" class="control-label">Korisničko ime:</label>
+		<input type="text" asp-for="@Model.Username" class="form-control" readonly>
+		<span asp-validation-for="@Model.Username" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.Password" class="control-label">Unesite novu lozinku</label>
+		<input id="password" type="password" asp-for="@Model.Password" class="form-control" asp-items="ViewBag.KorisnickiNalogId">
+		<span asp-validation-for="@Model.Password" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="@Model.PasswordConfrim" class="control-label">Potvrdite lozinku</label>
+		<input id="confirm_password" type="password" asp-for="@Model.PasswordConfrim" class="form-control" asp-items="ViewBag.KorisnickiNalogId">
+		<span asp-validation-for="@Model.PasswordConfrim" class="text-danger"></span>
+	</div>
+	
+	<input type="submit" class="btn btn-outline-secondary" value="Spremi" />
+</form>
+<script>
+	var password = document.getElementById("password")
+		, confirm_password = document.getElementById("confirm_password");
+
+	function validatePassword() {
+		if (password.value != confirm_password.value) {
+			confirm_password.setCustomValidity("Passwords Don't Match");
+		} else {
+			confirm_password.setCustomValidity('');
+		}
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+</script>
